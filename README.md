@@ -67,15 +67,21 @@ simulated bank account, that is. Don't get your hopes up.)
    above plan at the same time? Is there more than one way things can go
    wrong?
 
+   1. It could potentially read from the balance before one has finished a withdraw. This would make the starting balance incorrect when they do attempt to withdraw. If one takes the balance before the other sees it, it can end up withdrawing more money than there is in the balance.
+
 2. Study and understand the skeleton code in the `src/` directory.
 
    **Short answer**: what do each of the arguments to `open()` mean?
+
+   2. The filename is the file to open. O_CREAT will create the file if it doesn't exist. O_RDWR will open the file for reading and writing. 0644 is the permissions for the file. Everyone can read it, but only the owner can write to it.
 
 3. Take the skeleton code in the `src/` directory and implement the
    pieces marked. Run it.
    
    **Short answer**: What happens? Do things go as planned and look
    sensible? What do you speculate is happening?
+   
+   3. ANSWERHERE
 
 4. Add calls to [`flock()`](https://linux.die.net/man/2/flock) to
    capture and release an exclusive lock on the file before reading and
